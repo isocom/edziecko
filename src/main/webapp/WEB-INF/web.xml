@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <display-name>E Dziecko by ISOCOM</display-name>
+    <welcome-file-list>
+        <welcome-file>MojeDziecko</welcome-file>
+    </welcome-file-list>
+    <!-- *********************************************************** -->
+    <!-- Aplikacja, GAE, Itd -->
+    <servlet>
+        <servlet-name>WebInfo</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.WebInfo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WebInfo</servlet-name>
+        <url-pattern>/WebInfo</url-pattern>
+    </servlet-mapping>
+    <!-- Generowanie PDFów -->
+    <servlet>
+        <servlet-name>PDFServlet</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.reports.pdf.PDFServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PDFServlet</servlet-name>
+        <url-pattern>/PDF</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TestPDF</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.reports.pdf.TestPDF</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TestPDF</servlet-name>
+        <url-pattern>/TestPDF</url-pattern>
+    </servlet-mapping>
+    <!-- Generowanie plików Excela -->
+    <servlet>
+        <servlet-name>XLSServlet</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.reports.xls.XLSServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>XLSServlet</servlet-name>
+        <url-pattern>/XLS</url-pattern>
+    </servlet-mapping>
+    <!-- Menu główne aplikacji -->
+    <servlet>
+        <servlet-name>Menu</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.reports.Menu</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Menu</servlet-name>
+        <url-pattern>/Menu</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Raporty</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.reports.Raporty</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Raporty</servlet-name>
+        <url-pattern>/Raporty</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ListaObecnosci</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.reports.html.ListaObecnosci</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListaObecnosci</servlet-name>
+        <url-pattern>/ListaObecnosci</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Transferuj</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.reports.Transferuj</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Transferuj</servlet-name>
+        <url-pattern>/Transferuj</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>PobierzBZ</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.reports.PobierzBZ</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PobierzBZ</servlet-name>
+        <url-pattern>/PobierzBZ</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Rozliczenie</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.reports.html.Rozliczenie</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Rozliczenie</servlet-name>
+        <url-pattern>/Rozliczenie</url-pattern>
+    </servlet-mapping>
+    <!-- *********************************************************** -->
+    <!-- Applet -->
+    <servlet>
+        <servlet-name>EDzieckoAppletServlet</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.appletsrv.EDzieckoAppletServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EDzieckoAppletServlet</servlet-name>
+        <url-pattern>/appletsrv</url-pattern>
+    </servlet-mapping>
+    <!-- *********************************************************** -->
+    <!-- Udostępnione dla klientów -->
+    <!-- Entry point dla rodzica -->
+    <servlet>
+        <servlet-name>MojeDziecko</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.reports.MojeDziecko</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MojeDziecko</servlet-name>
+        <url-pattern>/MojeDziecko</url-pattern>
+    </servlet-mapping>
+    <!-- Obsługa rejestratora -->
+    <servlet>
+        <servlet-name>Rejestrator</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.adminsrv.Rejestrator</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Rejestrator</servlet-name>
+        <url-pattern>/Rejestrator</url-pattern>
+    </servlet-mapping>
+    <!-- Zamówienie karty dodatkowej -->
+    <servlet>
+        <servlet-name>ZamowKarteDodatkowa</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.adminsrv.ZamowKarteDodatkowa</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ZamowKarteDodatkowa</servlet-name>
+        <url-pattern>/ZamowKarteDodatkowa</url-pattern>
+    </servlet-mapping>
+    <!-- *********************************************************** -->
+    <!-- Trywialna administracja -->
+    <servlet>
+        <servlet-name>DumpPrzedszkole</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.adminsrv.DumpPrzedszkole</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DumpPrzedszkole</servlet-name>
+        <url-pattern>/DumpPrzedszkole</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>EdytujDzieci</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.forms.EdytujDzieci</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EdytujDzieci</servlet-name>
+        <url-pattern>/EdytujDzieci</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ExportujKarty</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.adminsrv.ExportujKarty</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExportujKarty</servlet-name>
+        <url-pattern>/ExportujKarty</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DodajZdarzenie</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.adminsrv.DodajZdarzenie</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DodajZdarzenie</servlet-name>
+        <url-pattern>/DodajZdarzenie</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>KsiegujWplaty</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.forms.KsiegujWplaty</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>KsiegujWplaty</servlet-name>
+        <url-pattern>/KsiegujWplaty</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UsunWplate</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.adminsrv.UsunWplate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsunWplate</servlet-name>
+        <url-pattern>/UsunWplate</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UstawZaliczki</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.adminsrv.UstawZaliczki</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UstawZaliczki</servlet-name>
+        <url-pattern>/UstawZaliczki</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UstalParametry</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.adminsrv.UstalParametry</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UstalParametry</servlet-name>
+        <url-pattern>/UstalParametry</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>WprowadzBO</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.adminsrv.WprowadzBO</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WprowadzBO</servlet-name>
+        <url-pattern>/WprowadzBO</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SzukajZdarzenDoUsuniecia</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.adminsrv.SzukajZdarzenDoUsuniecia</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SzukajZdarzenDoUsuniecia</servlet-name>
+        <url-pattern>/SzukajZdarzenDoUsuniecia</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UsunZdarzenia</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.adminsrv.UsunZdarzenia</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsunZdarzenia</servlet-name>
+        <url-pattern>/UsunZdarzenia</url-pattern>
+    </servlet-mapping>
+    <!-- PROWIZORKI -->
+    <servlet>
+        <servlet-name>CreatePrzedszkole</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.tests.CreatePrzedszkole</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreatePrzedszkole</servlet-name>
+        <url-pattern>/CreatePrzedszkole</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CreateKartyDodatkowe</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.tests.CreateKartyDodatkowe</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateKartyDodatkowe</servlet-name>
+        <url-pattern>/CreateKartyDodatkowe</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ZmienNumerSeryjny</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.tests.ZmienNumerSeryjny</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ZmienNumerSeryjny</servlet-name>
+        <url-pattern>/ZmienNumerSeryjny</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateTest1</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.tests.UpdateTest1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateTest1</servlet-name>
+        <url-pattern>/UpdateTest1</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UsunKarte</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.tests.UsunKarte</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsunKarte</servlet-name>
+        <url-pattern>/UsunKarte</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UsunDuplikatyKart</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.tests.UsunDuplikatyKart</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsunDuplikatyKart</servlet-name>
+        <url-pattern>/UsunDuplikatyKart</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UsunDodatkoweKarty</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.tests.UsunDodatkoweKarty</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsunDodatkoweKarty</servlet-name>
+        <url-pattern>/UsunDodatkoweKarty</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UsunDzieci</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.tests.UsunDzieci</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsunDzieci</servlet-name>
+        <url-pattern>/UsunDzieci</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>GenerateCardNumbers</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.tests.GenerateCardNumbers</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GenerateCardNumbers</servlet-name>
+        <url-pattern>/GenerateCardNumbers</url-pattern>
+    </servlet-mapping>
+    <!-- -->
+    <!-- -->
+    <!-- -->
+    <!-- OLA -->
+    <!-- -->
+    <!-- -->
+    <!-- Dodanie nowego dziecka -->
+    <servlet>
+        <servlet-name>DodajDziecko</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.ola.DodajDziecko</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DodajDziecko</servlet-name>
+        <url-pattern>/DodajDziecko</url-pattern>
+    </servlet-mapping>
+    <!-- Dodanie karty dodatkowej -->
+    <servlet>
+        <servlet-name>DodajKarte</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.ola.DodajKarte</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DodajKarte</servlet-name>
+        <url-pattern>/DodajKarte</url-pattern>
+    </servlet-mapping>
+    <!-- Zmiana numeru seryjnego -->
+    <servlet>
+        <servlet-name>UstawNumerSeryjny</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.ola.UstawNumerSeryjny</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UstawNumerSeryjny</servlet-name>
+        <url-pattern>/UstawNumerSeryjny</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UtworzKarteDodatkowa</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.ola.UtworzKarteDodatkowa</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UtworzKarteDodatkowa</servlet-name>
+        <url-pattern>/UtworzKarteDodatkowa</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UstawKluczPrzedszkola</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.ola.UstawKluczPrzedszkola</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UstawKluczPrzedszkola</servlet-name>
+        <url-pattern>/UstawKluczPrzedszkola</url-pattern>
+    </servlet-mapping>
+    <!-- -->
+    <!-- -->
+    <!-- Pakiet forms -->
+    <!-- Rozrachunki i inne rozliczenia -->
+    <!-- -->
+    <!-- -->
+    <servlet>
+        <servlet-name>EdycjaZywienia</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.forms.EdycjaZywienia</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EdycjaZywienia</servlet-name>
+        <url-pattern>/EdycjaZywienia</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RejestrujWplaty</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.forms.RejestrujWplaty</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RejestrujWplaty</servlet-name>
+        <url-pattern>/RejestrujWplaty</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Bart extensions -->
+    <servlet>
+        <servlet-name>PingServlet</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.util.PingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PingServlet</servlet-name>
+        <url-pattern>/PingServlet</url-pattern>
+    </servlet-mapping>
+</web-app>

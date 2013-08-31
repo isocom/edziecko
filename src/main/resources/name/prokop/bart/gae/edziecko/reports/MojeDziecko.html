@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ISOCOM: eDziecko</title>
+<link rel="stylesheet" type="text/css" href="/static/style.css" />
+<script src="/static/calendar/js/jscal2.js"></script>
+    <script src="/static/calendar/js/lang/pl.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/calendar/css/jscal2.css" />
+    <link rel="stylesheet" type="text/css" href="/static/calendar/css/border-radius.css" />
+    <link rel="stylesheet" type="text/css" href="/static/calendar/css/steel/steel.css" />
+</head>
+<body>
+<div id="bg">
+  <div id="wrap">
+    <div id="header">
+      <ul id="nav">
+        <li class="h"><a href="#">Strona główna</a></li>
+      </ul>
+    </div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1967189632274590";
+/* 728x90, created 7/17/09 */
+google_ad_slot = "6606003692";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+    <div id="content">
+     <hr />
+        <div class="text">
+          <h2>Raport z pobytu dziecka w przedszkolu</h2>
+		  <div align="center">
+		  <div>
+		Tej strony można użyć w celu wygenerowania raportu z pobytu własnego
+		dziecka w Przedszkolu. Należy posiadać kartę dziecka. Na awersie karty
+		znajduje się numer karty w postaci szesnastu cyfr pogrupowanych po
+		cztery cyfry - np. <b><i>9616 9942 9600 0012</i> </b>. Numer ten
+		należy przepisać do formularza poniżej a następnie wcisnąć przycisk
+		"Prezentuj raport".<hr>
+		Ze względu na nieodpowiedzialne działania pewnych osób, mające znamiona przestępstwa z art. 267 kodeksu karnego,
+		a polegające na próbach `zgadywania` numerów kart należących do innych osób, zmuszeni jesteśmy wprowadzić utrudnienia
+		w dostępie do raportów dla rodziców. Od tej chwili oprócz numeru karty znanego rodzicowi, wymagany będzie również nr PIN.
+		Aby uzyskać dostęp do do raportów poprzez Interner, należy ustalić nr PIN - w tym celu należy skontaktować się ze swoim przedszkolem.
+		Pracownik przedszkola przypisze dziecku nr PIN, tym samym odblokuje dostęp do raportów.
+	</div>
+	<hr />
+		<form action="MojeDziecko" method="post">
+			<table><tr><td>Wprowadź numer karty Twojego dziecka</td><td> <input type="text" name="cardNo" value="" /></td></tr>
+			<tr><td>Wybierz okres dla raportu:</td><td><select name="rokMiesiac" size="1">");
+				<option value="201109">2011 wrzesień</option>
+				<option value="201110">2011 październik</option>
+				<option value="201111">2011 listopad</option>
+				<option value="201112">2011 grudzień</option>
+
+				<option value="201201">2012 styczeń</option>
+				<option value="201202">2012 luty</option>
+				<option value="201203">2012 marzec</option>
+				<option value="201204">2012 kwiecień</option>
+				<option value="201205">2012 maj</option>
+				<option value="201206">2012 czerwiec</option>
+				<option value="201207">2012 lipiec</option>
+				<option value="201208">2012 sierpień</option>
+				<option value="201209">2012 wrzesień</option>
+				<option value="201210">2012 październik</option>
+				<option value="201211">2012 listopad</option>
+				<option value="201212">2012 grudzień</option>
+
+				<option value="201301">2013 styczeń</option>
+				<option value="201302">2013 luty</option>
+				<option value="201303">2013 marzec</option>
+				<option value="201304">2013 kwiecień</option>
+				<option value="201305">2013 maj</option>
+				<option value="201306">2013 czerwiec</option>
+				<option value="201307">2013 lipiec</option>
+				<option value="201308">2013 sierpień</option>
+				<option value="201309">2013 wrzesień</option>
+				<option value="201310">2013 październik</option>
+				<option value="201311">2013 listopad</option>
+				<option value="201312">2013 grudzień</option>
+			</select></td></tr>
+			<tr><td>PIN:</td><td><input type="text" name="pin" value="" /></td></tr>			
+			<tr><td colspan="2"><input type="submit" value="Prezentuj raport" /></td></tr></table>
+		</form>
+	</div>
+        </div>
+		<hr/>
+        
+      </div>
+      <!-- /content -->
+   
+    <div class="clearfix"></div>
+    <div id="footer">
+      <div id="ftinner">
+        <div class="ftlink fl">
+          <p id="copyright">© 2011 by BPP. All Rights Reserved.</p>            
+        </div>
+      </div>
+    </div>
+    <!-- /footer -->
+  </div>
+</div>
+<script type="text/javascript">//<![CDATA[
+  Calendar.setup({
+        inputField : "f_date1",
+        trigger    : "f_btn1",
+        onSelect   : function() { this.hide() },
+        dateFormat : "%Y-%m-%d"
+      });
+    //]]></script>
+<script type="text/javascript">//<![CDATA[
+      Calendar.setup({
+        inputField : "f_date2",
+        trigger    : "f_btn2",
+        onSelect   : function() { this.hide() },
+        dateFormat : "%Y-%m-%d "
+      });
+    //]]></script>
+	<script type="text/javascript">
+	function check(number)
+	{
+	if(number<10) return "0"+number;
+	}
+	
+     function daysInMonth(month,year) {
+		var m = [31,28,31,30,31,30,31,31,30,31,30,31];
+		if (month != 2) return m[month - 1];
+		if (year%4 != 0) return m[1];
+		if (year%100 == 0 && year%400 != 0) return m[1];
+		return m[1] + 1;
+		}
+	 
+		var now = new Date();
+		var currentTime = new Date(now.getFullYear(), now.getMonth()-1, 1);
+		var month = currentTime.getMonth()+1
+		var day = currentTime.getDate()
+		var year = currentTime.getFullYear()
+		var start = document.getElementById('f_date1');
+		var end = document.getElementById('f_date2');
+		start.value=year+"-"+check(month) + "-" + check(day);
+		end.value=year+"-"+check(month) + "-" + daysInMonth(month,year);
+		
+</script>
+</body>
+</html>
