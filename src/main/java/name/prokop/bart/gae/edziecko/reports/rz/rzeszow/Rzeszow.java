@@ -43,6 +43,7 @@ public class Rzeszow extends DzienPobytuDziecka {
     private final Date TBEGD;
     private final Date TENDD;
     private final int YEAR;
+    private final int MONTH;
     private final Map<String, Object> cols = new HashMap<String, Object>();
 
     public Rzeszow(KidsReport raport, Dziecko dziecko, Date data, NavigableSet<Zdarzenie> zdarzenia, Map<String, Object> shared) {
@@ -51,6 +52,7 @@ public class Rzeszow extends DzienPobytuDziecka {
         TBEGD = DateToolbox.getBeginingOfDay(data, 06 * HOUR + 30 * MIN);
         TENDD = DateToolbox.getBeginingOfDay(data, 17 * HOUR + 00 * MIN);
         YEAR = DateToolbox.getYear(data);
+        MONTH = DateToolbox.getMonth(data);
         TBEGF = DateToolbox.getBeginingOfDay(data, 8 * HOUR + 00 * MIN);
         TENDF = DateToolbox.getBeginingOfDay(data, 14 * HOUR + 00 * MIN);
         calc();
@@ -89,7 +91,6 @@ public class Rzeszow extends DzienPobytuDziecka {
         cols.put(CZASPRZED, czasPrzed);
         cols.put(CZASPO, czasPo);
         int czasPonad = czasPrzed + czasPo;
-        cols.put(CZASPONAD, czasPonad);
 
         double stawka = -1.0;
         if (YEAR == 2012) {
@@ -99,8 +100,6 @@ public class Rzeszow extends DzienPobytuDziecka {
                 stawka = 2.55;
             } else if (czasPonad <= HOUR * 3) {
                 stawka = 2.25;
-//            } else if (czasPonad <= HOUR * 4) {
-//                stawka = ;
             } else {
                 stawka = 1.95;
             }
@@ -116,10 +115,14 @@ public class Rzeszow extends DzienPobytuDziecka {
                 stawka = 2.08;
             }
         }
+        if ((YEAR == 2013) && (MONTH >= 9)) {
+            stawka = 1.0;
+            czasPonad = ((czasPrzed - 1) / HOUR + 1) + ((czasPo - 1) / HOUR + 1);
+        }
 
+        cols.put(CZASPONAD, czasPonad);
         stawka = BPMath.roundCurrency(stawka * dziecko.getRabat1AsFactor());
         cols.put(CENAGODZ, stawka);
-
 
         double opieka = ((czasPonad - 1) / HOUR + 1) * stawka;
         if (czasPonad == 0) {
