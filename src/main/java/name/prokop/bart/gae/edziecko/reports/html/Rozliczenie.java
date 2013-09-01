@@ -82,8 +82,12 @@ public class Rozliczenie extends EDzieckoServlet {
         Zaliczki zaliczki = rozliczenieMiesieczne.getZaliczki();
 
         for (Key dzieckoKey : listaDzieci) {
-            out.println("<tr>");
             Dziecko dziecko = przedszkole.getDziecko(dzieckoKey);
+            if (!dziecko.isAktywne()) {
+                continue;
+            }
+
+            out.println("<tr>");
             Wplata wplata = wplaty.liczWplateSumaryczna(dzieckoKey.getId());
 
             out.println("<td>" + dziecko.getImieNazwiskoAsString() + "</td>");
