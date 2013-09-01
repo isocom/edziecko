@@ -16,7 +16,6 @@ import name.prokop.bart.gae.edziecko.bol.RozliczenieMiesieczne;
 import name.prokop.bart.gae.edziecko.bol.Zdarzenie;
 import name.prokop.bart.gae.edziecko.util.BPMath;
 
-
 /**
  *
  * @author bart
@@ -37,7 +36,11 @@ public class KidsReport {
         // podziel zdarzenia pomiędzy dzieci
         Map<Dziecko, List<Zdarzenie>> grouppedByPeople = new HashMap<Dziecko, List<Zdarzenie>>();
         for (Zdarzenie e : zbiorZdarzen.getZdarzenia()) {
-            List<Zdarzenie> humanLog = grouppedByPeople.get(zbiorZdarzen.getPrzedszkole().getDziecko(e.getDzieckoKey()));
+            Dziecko dziecko = zbiorZdarzen.getPrzedszkole().getDziecko(e.getDzieckoKey());
+            if (!dziecko.isAktywne()) {
+                continue;
+            }
+            List<Zdarzenie> humanLog = grouppedByPeople.get(dziecko);
             if (humanLog == null) {
                 humanLog = new ArrayList<Zdarzenie>();
                 grouppedByPeople.put(zbiorZdarzen.getPrzedszkole().getDziecko(e.getDzieckoKey()), humanLog);
@@ -84,10 +87,9 @@ public class KidsReport {
         retVal.addAll(humanReports.values());
 
         Collections.sort(retVal, new Comparator<KartaPobytuDziecka>() {
-
             @Override
             public int compare(KartaPobytuDziecka o1, KartaPobytuDziecka o2) {
-                return Dziecko.compare(o1.getHuman(), o2.getHuman());                
+                return Dziecko.compare(o1.getHuman(), o2.getHuman());
             }
         });
         return retVal;

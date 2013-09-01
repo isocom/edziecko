@@ -61,11 +61,11 @@ public class KsiegujWplaty extends EDzieckoServlet {
 
         Set<Key> listaDzieci = rozliczenieMiesieczne.getListaDzieci();
         for (Key dzieckoKey : listaDzieci) {
-            out.append("<tr>");
             Dziecko dziecko = przedszkole.getDziecko(dzieckoKey);
             Wplata wplaty = rozliczenieMiesieczne.getWplaty().liczWplateSumaryczna(dziecko.getKey().getId());
             long dzieckoId = dziecko.getKey().getId();
 
+            out.append("<tr>");
             out.append("<td>").append(dziecko.getImieNazwisko()).append("</td>");
             out.append("<td>").append(dziecko.getPesel() != null ? dziecko.getPesel() : "").append("</td>");
             out.append("<td>").append(dziecko.getGrupa() != null ? dziecko.getGrupa().getCategory() : "").append("</td>");

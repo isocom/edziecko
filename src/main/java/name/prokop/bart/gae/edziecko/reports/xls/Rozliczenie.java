@@ -21,11 +21,12 @@ public class Rozliczenie extends XLSReport {
 
     @Override
     protected void renderContent() throws Exception {
-        rozliczenie(writableWorkbook.createSheet("Rozliczenie", 0));
-        wplaty(writableWorkbook.createSheet("Wpłaty", 1));
+        rozliczenie(writableWorkbook.createSheet("AKT Rozliczenie", 0), true);
+        rozliczenie(writableWorkbook.createSheet("ALL Rozliczenie", 1), false);
+        wplaty(writableWorkbook.createSheet("Wpłaty", 2));
     }
 
-    private void rozliczenie(WritableSheet sheet) throws Exception {
+    private void rozliczenie(WritableSheet sheet, boolean onlyActive) throws Exception {
         sheet.addCell(new Label(0, 0, "Dane dziecka"));
         sheet.addCell(new Label(3, 0, "Opieka"));
         sheet.addCell(new Label(12, 0, "Żywienie"));
@@ -85,6 +86,9 @@ public class Rozliczenie extends XLSReport {
         for (Key dzieckoKey : listaDzieci) {
             long key = dzieckoKey.getId();
             Dziecko dziecko = przedszkole.getDziecko(dzieckoKey);
+            if (onlyActive && !dziecko.isAktywne()) {
+                continue;
+            }
             Wplata wplata = wplaty.liczWplateSumaryczna(key);
 
             c = 0;

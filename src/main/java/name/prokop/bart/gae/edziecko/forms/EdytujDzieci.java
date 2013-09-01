@@ -44,10 +44,10 @@ public class EdytujDzieci extends EDzieckoServlet {
         response.println("<td>Rabat 2</td>");
         response.println("</tr></thead>");
 
-        for (Dziecko d : przedszkole.getDzieci()) {
+        for (Dziecko d : przedszkole.getDzieciPosortowane()) {
             response.println("<tr>");
             response.println("<td>" + d.getKey().getId() + "</td>");
-            response.println("<td><input type=\"text\" name=\"A_" + d.getKey().getId() + "\" value=\"TAK\" " + (d.isAktywne() ? "checked" : "") + "></td>");
+            response.println("<td><input type=\"checkbox\" name=\"A_" + d.getKey().getId() + "\" value=\"TAK\" " + (d.isAktywne() ? "checked" : "") + "></td>");
             response.println("<td><input type=\"text\" name=\"N_" + d.getKey().getId() + "\" value=\"" + d.getImieNazwisko() + "\"></td>");
             response.println("<td>" + (d.getPesel() != null ? d.getPesel() : "") + "</td>");
 

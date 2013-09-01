@@ -20,9 +20,18 @@ class BO extends XLSReport {
 
     @Override
     protected void renderContent() throws Exception {
-        String title = "BO  od " + DateToolbox.getFormatedDate("yyyy-MM-dd", request.decodeRokMiesiacFrom()) + " do " + DateToolbox.getFormatedDate("yyyy-MM-dd", request.decodeRokMiesiacTo());
-        WritableSheet sheet = writableWorkbook.createSheet(title, 0);
+        sheet(0, false);
+        sheet(1, true);
+    }
 
+    private void sheet(int idx, boolean onlyActive) throws Exception {
+        String title = "BO  od " + DateToolbox.getFormatedDate("yyyy-MM-dd", request.decodeRokMiesiacFrom()) + " do " + DateToolbox.getFormatedDate("yyyy-MM-dd", request.decodeRokMiesiacTo());
+        if (onlyActive) {
+            title = "AKT " + title;
+        } else {
+            title = "ALL " + title;
+        }
+        WritableSheet sheet = writableWorkbook.createSheet(title, idx);
 
         sheet.addCell(new Label(0, 0, "Dziecko"));
         sheet.addCell(new Label(1, 0, "Pesel"));
@@ -40,6 +49,9 @@ class BO extends XLSReport {
         int row = 1;
         for (Key dzieckoKey : listaDzieci) {
             Dziecko d = request.getPrzedszkole().getDziecko(dzieckoKey);
+            if (onlyActive && !d.isAktywne()) {
+                continue;
+            }
             long dk = d.getKey().getId();
             sheet.addCell(new Label(0, row, d.getImieNazwiskoAsString()));
             sheet.addCell(new Label(1, row, d.getPeselAsString()));
@@ -53,6 +65,9 @@ class BO extends XLSReport {
             row++;
         }
 
+        if (onlyActive) {
+            return;
+        }
         sheet.addCell(new Label(0, row, "Razem"));
         sheet.addCell(new jxl.write.Number(3, row, rozliczenieMiesieczne.getBilansOtwarcia().sumOpieka()));
         sheet.addCell(new jxl.write.Number(4, row, rozliczenieMiesieczne.getBilansOtwarcia().sumNadplataOpieka()));

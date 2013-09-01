@@ -28,6 +28,9 @@ public class Dzieci extends XLSReport {
         Przedszkole przedszkole = request.getPrzedszkole();
         int row = 1;
         for (Dziecko d : przedszkole.getDzieci()) {
+            if (!d.isAktywne()) {
+                continue;
+            }
             sheet.addCell(new Label(0, row, d.getImieNazwiskoAsString()));
             sheet.addCell(new Label(1, row, d.getPeselAsString()));
             sheet.addCell(new Label(2, row, d.getGrupaAsString()));
