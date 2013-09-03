@@ -77,10 +77,12 @@ public class Biskupiec extends DzienPobytuDziecka {
         calendar.setTimeZone(TimeZone.getTimeZone("CET"));
         calendar.setTime(date);
 
-        if (date.before(DateToolbox.encodeDate("20130201"))) {
+        if (date.before(DateToolbox.encodeDate("20130901"))) {
+            STAWKA_OPIEKI = 3.5;
+        } else if (date.before(DateToolbox.encodeDate("20130201"))) {
             STAWKA_OPIEKI = 2.0;
         } else {
-            STAWKA_OPIEKI = 3.5;
+            STAWKA_OPIEKI = 1.0;
         }
 
         TBEGF = DateToolbox.getBeginingOfDay(date, 7 * HOUR + 30 * MIN);
