@@ -54,7 +54,7 @@ public class Rzeszow extends DzienPobytuDziecka {
         YEAR = DateToolbox.getYear(data);
         MONTH = DateToolbox.getMonth(data);
         TBEGF = DateToolbox.getBeginingOfDay(data, 8 * HOUR + 00 * MIN);
-        TENDF = DateToolbox.getBeginingOfDay(data, 14 * HOUR + 00 * MIN);
+        TENDF = DateToolbox.getBeginingOfDay(data, 13 * HOUR + 00 * MIN);
         calc();
     }
 
