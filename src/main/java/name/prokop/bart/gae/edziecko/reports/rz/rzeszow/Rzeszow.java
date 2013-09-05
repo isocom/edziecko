@@ -117,7 +117,8 @@ public class Rzeszow extends DzienPobytuDziecka {
         }
         if ((YEAR == 2013) && (MONTH >= 9)) {
             stawka = 1.0;
-            czasPonad = ((czasPrzed - 1) / HOUR + 1) + ((czasPo - 1) / HOUR + 1);
+            czasPonad = ((czasPrzed + HOUR - 1) / HOUR) * HOUR;
+            czasPonad += ((czasPo + HOUR - 1) / HOUR) * HOUR;
         }
 
         cols.put(CZASPONAD, czasPonad);
@@ -125,10 +126,6 @@ public class Rzeszow extends DzienPobytuDziecka {
         cols.put(CENAGODZ, stawka);
 
         double opieka = ((czasPonad - 1) / HOUR + 1) * stawka;
-        if (czasPonad == 0) {
-            opieka = 0.0;
-        }
-
         opieka = BPMath.roundCurrency(opieka);
         cols.put(POBYT, opieka);
 

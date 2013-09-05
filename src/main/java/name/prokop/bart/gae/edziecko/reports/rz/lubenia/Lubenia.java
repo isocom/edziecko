@@ -46,8 +46,8 @@ public class Lubenia extends DzienPobytuDziecka {
 
     public Lubenia(KidsReport raport, Dziecko dziecko, Date data, NavigableSet<Zdarzenie> zdarzenia, Map<String, Object> shared) {
         super(raport, dziecko, data, zdarzenia, shared);
-        TMIDD = DateToolbox.getBeginingOfDay(data, 11 * HOUR + 15 * MIN);
-        TBEGD = DateToolbox.getBeginingOfDay(data, 06 * HOUR + 30 * MIN);
+        TMIDD = DateToolbox.getBeginingOfDay(data, 11 * HOUR + 30 * MIN);
+        TBEGD = DateToolbox.getBeginingOfDay(data, 06 * HOUR + 00 * MIN);
         TENDD = DateToolbox.getBeginingOfDay(data, 17 * HOUR + 00 * MIN);
         TBEGF = DateToolbox.getBeginingOfDay(data, 8 * HOUR + 00 * MIN);
         TENDF = DateToolbox.getBeginingOfDay(data, 13 * HOUR + 00 * MIN);
@@ -88,7 +88,7 @@ public class Lubenia extends DzienPobytuDziecka {
         cols.put(CZASPO, czasPo);
 
         double stawka = 2.0;
-        int czasPonad = ((czasPrzed - 1) / HOUR + 1) + ((czasPo - 1) / HOUR + 1);
+        int czasPonad = ((czasPrzed + HOUR - 1) / HOUR) * HOUR + ((czasPo + HOUR - 1) / HOUR) * HOUR;
 
         cols.put(CZASPONAD, czasPonad);
         stawka = BPMath.roundCurrency(stawka * dziecko.getRabat1AsFactor());
