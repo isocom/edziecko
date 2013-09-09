@@ -92,34 +92,9 @@ public class Rzeszow extends DzienPobytuDziecka {
         cols.put(CZASPO, czasPo);
         int czasPonad = czasPrzed + czasPo;
 
-        double stawka = -1.0;
-        if (YEAR == 2012) {
-            if (czasPonad <= HOUR * 1) {
-                stawka = 2.85;
-            } else if (czasPonad <= HOUR * 2) {
-                stawka = 2.55;
-            } else if (czasPonad <= HOUR * 3) {
-                stawka = 2.25;
-            } else {
-                stawka = 1.95;
-            }
-        }
-        if (YEAR == 2013) {
-            if (czasPonad <= HOUR * 1) {
-                stawka = 3.04;
-            } else if (czasPonad <= HOUR * 2) {
-                stawka = 2.72;
-            } else if (czasPonad <= HOUR * 3) {
-                stawka = 2.40;
-            } else {
-                stawka = 2.08;
-            }
-        }
-        if ((YEAR == 2013) && (MONTH >= 9)) {
-            stawka = 1.0;
-            czasPonad = ((czasPrzed + HOUR - 1) / HOUR) * HOUR;
-            czasPonad += ((czasPo + HOUR - 1) / HOUR) * HOUR;
-        }
+        double stawka = 1.0;
+        czasPonad = ((czasPrzed + HOUR - 1) / HOUR) * HOUR;
+        czasPonad += ((czasPo + HOUR - 1) / HOUR) * HOUR;
 
         cols.put(CZASPONAD, czasPonad);
         stawka = BPMath.roundCurrency(stawka * dziecko.getRabat1AsFactor());
