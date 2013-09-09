@@ -97,7 +97,7 @@ public class Bratkowice extends DzienPobytuDziecka {
 //        if (dziecko.getGrupa() != null && dziecko.getGrupa().getCategory().equals("IV") && dayOfWeek == Calendar.TUESDAY) {
 //            czasPo += 20 * MIN;
 //        }
-        double opieka = ((czasPo + czasPrzed - 1) / HOUR + 1) * 2;
+        double opieka = ((czasPo + czasPrzed - 1) / HOUR + 1) * 1;
         if ((czasPo + czasPrzed) == 0) {
             opieka = 0.0;
         }
