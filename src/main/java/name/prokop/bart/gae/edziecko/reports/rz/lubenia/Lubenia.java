@@ -1,6 +1,11 @@
 package name.prokop.bart.gae.edziecko.reports.rz.lubenia;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.NavigableSet;
 import name.prokop.bart.gae.edziecko.bol.Dziecko;
 import name.prokop.bart.gae.edziecko.bol.Zdarzenie;
 import name.prokop.bart.gae.edziecko.reports.DzienPobytuDziecka;
@@ -87,7 +92,7 @@ public class Lubenia extends DzienPobytuDziecka {
         cols.put(CZASPRZED, czasPrzed);
         cols.put(CZASPO, czasPo);
 
-        double stawka = 2.0;
+        double stawka = 1.0;
         int czasPonad = ((czasPrzed + HOUR - 1) / HOUR) * HOUR + ((czasPo + HOUR - 1) / HOUR) * HOUR;
 
         cols.put(CZASPONAD, czasPonad);
