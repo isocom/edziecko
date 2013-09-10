@@ -190,11 +190,11 @@ public class Rozliczenie extends EDzieckoServlet {
             if (dataPoprzedniejWplaty != null && dataPoprzedniejWplaty.before(w.getDzienZaplaty())) {
                 subWplaty(out, wplaty, dataPoprzedniejWplaty);
             }
-            out.println("<tr>");
             Dziecko dziecko = przedszkole.getDziecko(KeyFactory.createKey(rozliczenieMiesieczne.getPrzedszkoleKey(), "Dziecko", w.getDzieckoKey()));
-            out.println("<td>" + dziecko.getImieNazwisko() + "</td>");
-            out.println("<td>" + (dziecko.getPesel() != null ? dziecko.getPesel() : "") + "</td>");
-            out.println("<td>" + (dziecko.getGrupa() != null ? dziecko.getGrupa().getCategory() : "") + "</td>");
+            out.println("<tr>");
+            out.println("<td>" + ((dziecko == null) ? ("<b>USUNIĘTE: </b>" + w.getDzieckoKey()) : dziecko.getImieNazwisko()) + "</td>");
+            out.println("<td>" + ((dziecko == null) ? "" : (dziecko.getPesel() != null ? dziecko.getPesel() : "")) + "</td>");
+            out.println("<td>" + ((dziecko == null) ? "" : (dziecko.getGrupa() != null ? dziecko.getGrupa().getCategory() : "")) + "</td>");
             out.println("<td>" + DateToolbox.getFormatedDate("yyyy-MM-dd", w.getDzienZaplaty()) + "</td>");
             out.println("<td>" + StringToolbox.d2c(w.getOpieka()) + "</td>");
             out.println("<td>" + StringToolbox.d2c(w.getOpiekaWplata()) + "</td>");

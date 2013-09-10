@@ -4,7 +4,6 @@ import com.google.appengine.api.datastore.Category;
 import com.google.appengine.api.datastore.KeyFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.HashSet;
 import javax.jdo.PersistenceManager;
 import javax.servlet.ServletException;

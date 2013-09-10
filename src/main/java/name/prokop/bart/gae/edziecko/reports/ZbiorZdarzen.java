@@ -96,6 +96,14 @@ public class ZbiorZdarzen {
             params.put("fromParam", from);
             params.put("toParam", to);
             zdarzenia.addAll((List<Zdarzenie>) q.executeWithMap(params));
+            /// FILTROWANIE
+            Iterator<Zdarzenie> iterator = zdarzenia.iterator();
+            while (iterator.hasNext()) {
+                if (przedszkole.getDziecko(iterator.next().getDzieckoKey()) == null) {
+                    iterator.remove();
+                }
+            }
+            /// FILTROWANIE
         } finally {
             q.closeAll();
             pm.close();
