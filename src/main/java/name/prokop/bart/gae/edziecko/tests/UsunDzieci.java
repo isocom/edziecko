@@ -5,6 +5,7 @@ import com.google.appengine.api.datastore.KeyFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashSet;
 import javax.jdo.PersistenceManager;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +22,7 @@ public class UsunDzieci extends HttpServlet {
     private static final long serialVersionUID = -2415533117587394710L;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String pwd = request.getParameter("passwd");
         if (!"TTSoft".equals(pwd)) {
             response.sendError(401);
@@ -59,7 +60,7 @@ public class UsunDzieci extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String pwd = request.getParameter("passwd");
         if (!"TTSoft".equals(pwd)) {
             response.sendError(401);
@@ -69,13 +70,16 @@ public class UsunDzieci extends HttpServlet {
         response.setContentType("text/plain;charset=UTF-8");
         PrintWriter out = response.getWriter();
         PersistenceManager pm = PMF.getPM();
-        ArrayList<Dziecko> dousuniecia = new ArrayList<Dziecko>();
+        HashSet<Dziecko> dousuniecia = new HashSet<Dziecko>();
         Long id = Long.parseLong(request.getParameter("przedszkoleId"));
         pm.currentTransaction().begin();
         Przedszkole przedszkole = pm.getObjectById(Przedszkole.class, id);
         for (Dziecko d : przedszkole.getDzieci()) {
-            if ("N/D".equals(d.getGrupa().getCategory())) {
-                dousuniecia.add(d);
+            for (Karta k : d.getKarty()) {
+                if (k.getNumerSeryjny().startsWith("TMP") && d.getKarty().size() == 1) {
+                    dousuniecia.add(d);
+                    out.println("DO USUNIECIA: " + d);
+                }
             }
         }
         for (Dziecko d : dousuniecia) {
@@ -85,7 +89,7 @@ public class UsunDzieci extends HttpServlet {
 
         for (Dziecko d : dousuniecia) {
             for (Karta k : d.getKarty()) {
-                pm.deletePersistent(d);
+                pm.deletePersistent(k);
                 out.println("Usunieto: " + k);
             }
             pm.deletePersistent(d);
