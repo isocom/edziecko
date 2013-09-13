@@ -67,15 +67,16 @@ public class AppletDAO {
         for (String o : okresy) {
             IC.INSTANCE.remove(ZbiorZdarzen.buildID(przedszkole.getKey(), Integer.parseInt(o)));
         }
-        
+
         if (ERRORS.length() > 0) {
             Mail mail = new Mail();
             mail.addTo(new MailAddress("EDZIECKO", "edziecko@isocom.eu"));
             mail.setSubject("Problem z odczytem zdarzen - brak karty w systemie.");
+            ERRORS.insert(0, "Dotyczy: " + przedszkole + "\n\n");
             mail.setTextBody(ERRORS.toString());
             Mailer.INSTANCE.send(mail);
         }
-        
+
         return true;
     }
 
