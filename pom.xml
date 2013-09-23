@@ -3,7 +3,7 @@
     <!-- Project description -->
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>bart.prokop.name</groupId>
+    <groupId>name.prokop.bart</groupId>
     <artifactId>e-dziecko</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
