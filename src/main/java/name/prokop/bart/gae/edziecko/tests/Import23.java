@@ -57,8 +57,6 @@ public class Import23 {
         Document document = docBuilder.parse(Import23.class.getResourceAsStream("/dbCardLog.xml"));
         NodeList entries = (NodeList) xpath.evaluate("/tibboCardLog/entry", document, XPathConstants.NODESET);
 
-
-
         Map<String, String> map = map();
         System.out.println(map);
 
@@ -98,7 +96,7 @@ public class Import23 {
         for (JSONObject jo : requests) {
             Map<String, String> params = new HashMap<String, String>();
             params.put("requestType", "UploadDatabase");
-            params.put("przedszkoleId", "108001");
+            params.put("przedszkoleId", "131245");
             params.put("tibboDatabase", jo.toString());
             System.out.println(jo);
             String response = PostClient.postClient("http://e-dziecko.appspot.com/appletsrv", params);
