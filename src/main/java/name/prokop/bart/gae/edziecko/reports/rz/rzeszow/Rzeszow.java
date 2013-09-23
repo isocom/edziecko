@@ -91,16 +91,13 @@ public class Rzeszow extends DzienPobytuDziecka {
         cols.put(CZASPRZED, czasPrzed);
         cols.put(CZASPO, czasPo);
         int czasPonad = czasPrzed + czasPo;
+        cols.put(CZASPONAD, czasPonad);
 
         double stawka = 1.0;
-        czasPonad = ((czasPrzed + HOUR - 1) / HOUR) * HOUR;
-        czasPonad += ((czasPo + HOUR - 1) / HOUR) * HOUR;
-
-        cols.put(CZASPONAD, czasPonad);
         stawka = BPMath.roundCurrency(stawka * dziecko.getRabat1AsFactor());
         cols.put(CENAGODZ, stawka);
 
-        double opieka = ((czasPonad - 1) / HOUR + 1) * stawka;
+        double opieka = ((czasPonad + HOUR - 1) / HOUR) * stawka;
         opieka = BPMath.roundCurrency(opieka);
         cols.put(POBYT, opieka);
 
