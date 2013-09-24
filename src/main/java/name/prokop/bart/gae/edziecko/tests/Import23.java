@@ -96,7 +96,7 @@ public class Import23 {
         for (JSONObject jo : requests) {
             Map<String, String> params = new HashMap<String, String>();
             params.put("requestType", "UploadDatabase");
-            params.put("przedszkoleId", "131245");
+            params.put("przedszkoleId", "206525");
             params.put("tibboDatabase", jo.toString());
             System.out.println(jo);
             String response = PostClient.postClient("http://e-dziecko.appspot.com/appletsrv", params);
