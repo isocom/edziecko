@@ -98,10 +98,10 @@ public class RudnaWielka extends DzienPobytuDziecka {
 
         double opieka = 0.0;
         if (czasPrzed > 0.0) {
-            opieka += ((czasPrzed - 1) / HALF_HOUR + 1) * 1;
+            opieka += ((czasPrzed - 1) / HALF_HOUR + 1) * .5;
         }
         if (czasPo > 0) {
-            opieka += ((czasPo - 1) / HALF_HOUR + 1) * 1;
+            opieka += ((czasPo - 1) / HALF_HOUR + 1) * .5;
         }
 
 

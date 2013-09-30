@@ -83,23 +83,23 @@ public class Mrowla extends DzienPobytuDziecka {
         double pricePost = 0.0;
 
         if (czasOd.getTime() < T0651.getTime()) {
-            pricePre = 3.0;
+            pricePre = 1.5;
         }
         if (T0651.getTime() <= czasOd.getTime() && czasOd.getTime() < T0745.getTime()) {
-            pricePre = 2.0;
+            pricePre = 1.0;
         }
 
         if (T1321.getTime() <= czasDo.getTime() && czasDo.getTime() < T1416.getTime()) {
-            pricePost = 2.0;
+            pricePost = 1.0;
         }
         if (T1416.getTime() <= czasDo.getTime() && czasDo.getTime() < T1516.getTime()) {
-            pricePost = 4.0;
+            pricePost = 2.0;
         }
         if (T1516.getTime() <= czasDo.getTime() && czasDo.getTime() < T1616.getTime()) {
-            pricePost = 6.0;
+            pricePost = 3.0;
         }
         if (T1616.getTime() <= czasDo.getTime()) {
-            pricePost = 6.5;
+            pricePost = 4.0;
         }
 
         pricePre = BPMath.roundCurrency(pricePre * dziecko.getRabat1AsFactor());

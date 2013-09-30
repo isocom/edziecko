@@ -96,7 +96,7 @@ public class Trzciana extends DzienPobytuDziecka {
         if (czasPo < 0) {
             czasPo = 0;
         }
-        double opieka = ((czasPo + czasPrzed - 1) / SEC / HOUR + 1) * 2;
+        double opieka = ((czasPo + czasPrzed - 1) / SEC / HOUR + 1) * 1;
         if ((czasPo + czasPrzed) == 0) {
             opieka = 0.0;
         }

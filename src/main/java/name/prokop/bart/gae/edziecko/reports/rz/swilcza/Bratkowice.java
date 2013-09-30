@@ -56,9 +56,6 @@ public class Bratkowice extends DzienPobytuDziecka {
 
         TBEGF = DateToolbox.getBeginingOfDay(date, 7 * HOUR + 50 * MIN);
         dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-        // if (dayOfWeek == Calendar.WEDNESDAY || dayOfWeek ==
-        // Calendar.THURSDAY)
-        // TENDF = DateToolbox.getBeginingOfDay(date, 13 * HOUR + 40 * MIN);
         TENDF = DateToolbox.getBeginingOfDay(date, 13 * HOUR + 10 * MIN);
 
         calc();
