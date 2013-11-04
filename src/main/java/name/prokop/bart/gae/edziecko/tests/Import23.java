@@ -1,12 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package name.prokop.bart.gae.edziecko.tests;
 
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
@@ -96,7 +91,7 @@ public class Import23 {
         for (JSONObject jo : requests) {
             Map<String, String> params = new HashMap<String, String>();
             params.put("requestType", "UploadDatabase");
-            params.put("przedszkoleId", "206525");
+            params.put("przedszkoleId", "124761");
             params.put("tibboDatabase", jo.toString());
             System.out.println(jo);
             String response = PostClient.postClient("http://e-dziecko.appspot.com/appletsrv", params);
