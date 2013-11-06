@@ -33,17 +33,23 @@ public class Android extends HttpServlet {
         }
         cn = cn.trim();
         cn = StringToolbox.cardNumberPretty(StringToolbox.cardNumberCompress(cn));
-        writer.println(process(cn));
+        Date date = new Date();
+
+        String s = request.getParameter("dt");
+        if (s != null) {
+            date = DateToolbox.parseDateChecked("yyyyMMddHHmm", s);
+        }
+        writer.println(process(cn, date));
     }
 
-    private String process(String cardNo) {
+    private String process(String cardNo, Date date) {
         Karta karta = IC.INSTANCE.getKartaByCN(cardNo);
         if (karta == null) {
             return "Nie znaleziono karty o numerze " + cardNo;
         }
         Przedszkole przedszkole = karta.getDziecko().getPrzedszkole();
         PersistenceManager pm = PMF.getPM();
-        Date date = new Date();
+
         try {
             Zdarzenie zdarzenie = new Zdarzenie();
             karta = przedszkole.getKartaByCN(cardNo);
