@@ -45,14 +45,14 @@ public abstract class PDFReport {
         pageNumber = 0;
     }
 
-    protected void newPage() throws Exception {
+    protected void newPageA4() throws Exception {
         page = new Page(pdf, A4.PORTRAIT);
         x_pos = 20.0;
         y_pos = 20.0;
         pageNumber++;
     }
 
-    protected void newPageLandscape() throws Exception {
+    protected void newPageLandscapeA4() throws Exception {
         page = new Page(pdf, A4.LANDSCAPE);
         x_pos = 20.0;
         y_pos = 20.0;
@@ -90,7 +90,7 @@ public abstract class PDFReport {
     protected void drawFooter() throws Exception {
         Przedszkole przedszkole = request.getPrzedszkole();
 
-        y_pos = page.getHeight() - 40;
+        y_pos = page.getHeight() - 30;
         Line line = new Line(x_pos, y_pos, page.getWidth() - x_pos, y_pos);
         line.drawOn(page);
 

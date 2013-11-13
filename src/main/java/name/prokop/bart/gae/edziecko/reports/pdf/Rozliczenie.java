@@ -44,7 +44,7 @@ public class Rozliczenie extends PDFReport {
     }
 
     private void generateRozliczenie() throws Exception {
-        newPageLandscape();
+        newPageLandscapeA4();
         drawHeader();
 
         TextLine text = new TextLine(fontTimesRoman14);
@@ -67,14 +67,14 @@ public class Rozliczenie extends PDFReport {
                 break;
             }
             drawFooter();
-            newPageLandscape();
+            newPageLandscapeA4();
             drawHeader();
         }
         drawFooter();
     }
 
     private void generateWplaty() throws Exception {
-        newPage();
+        newPageLandscapeA4();
         drawHeader();
 
         TextLine text = new TextLine(fontTimesRoman14);
@@ -97,7 +97,7 @@ public class Rozliczenie extends PDFReport {
                 break;
             }
             drawFooter();
-            newPage();
+            newPageLandscapeA4();
             drawHeader();
         }
         drawFooter();
@@ -193,30 +193,30 @@ public class Rozliczenie extends PDFReport {
         }
 
         cells = new ArrayList<Cell>();
-        cells.add(new Cell(fontHelvetica10, "RAZEM"));
-        cells.add(new Cell(fontHelvetica10, ""));
-        cells.add(new Cell(fontHelvetica10, ""));
-        cells.add(new Cell(fontHelvetica10, d2s(bilansOtwarcia.sumOpieka())));
-        cells.add(new Cell(fontHelvetica10, d2s(bilansOtwarcia.sumNadplataOpieka())));
-        cells.add(new Cell(fontHelvetica10, d2s(bilansOtwarcia.sumZalegloscOpieka())));
-        cells.add(new Cell(fontHelvetica10, zuzycie.sumDniOpieka() + ""));
-        cells.add(new Cell(fontHelvetica10, d2s(zuzycie.sumOpieka())));
-        cells.add(new Cell(fontHelvetica10, d2s(wplaty.sumOpieka())));
-        cells.add(new Cell(fontHelvetica10, d2s(s_o_bz)));
-        cells.add(new Cell(fontHelvetica10, d2s(s_o_zal)));
-        cells.add(new Cell(fontHelvetica10, d2s(s_o_pay)));
+        cells.add(new Cell(fontHelvetica6, "RAZEM"));
+        cells.add(new Cell(fontHelvetica6, ""));
+        cells.add(new Cell(fontHelvetica6, ""));
+        cells.add(new Cell(fontHelvetica6, d2s(bilansOtwarcia.sumOpieka())));
+        cells.add(new Cell(fontHelvetica6, d2s(bilansOtwarcia.sumNadplataOpieka())));
+        cells.add(new Cell(fontHelvetica6, d2s(bilansOtwarcia.sumZalegloscOpieka())));
+        cells.add(new Cell(fontHelvetica6, zuzycie.sumDniOpieka() + ""));
+        cells.add(new Cell(fontHelvetica6, d2s(zuzycie.sumOpieka())));
+        cells.add(new Cell(fontHelvetica6, d2s(wplaty.sumOpieka())));
+        cells.add(new Cell(fontHelvetica6, d2s(s_o_bz)));
+        cells.add(new Cell(fontHelvetica6, d2s(s_o_zal)));
+        cells.add(new Cell(fontHelvetica6, d2s(s_o_pay)));
 
-        cells.add(new Cell(fontHelvetica10, d2s(bilansOtwarcia.sumZywienie())));
-        cells.add(new Cell(fontHelvetica10, d2s(bilansOtwarcia.sumNadplataZywienie())));
-        cells.add(new Cell(fontHelvetica10, d2s(bilansOtwarcia.sumZalegloscZywienie())));
-        cells.add(new Cell(fontHelvetica10, zuzycie.sumDniZywienie() + ""));
-        cells.add(new Cell(fontHelvetica10, d2s(zuzycie.sumZywienie())));
-        cells.add(new Cell(fontHelvetica10, d2s(wplaty.sumZywienie())));
-        cells.add(new Cell(fontHelvetica10, d2s(s_z_bz)));
-        cells.add(new Cell(fontHelvetica10, d2s(s_z_zal)));
-        cells.add(new Cell(fontHelvetica10, d2s(s_z_pay)));
+        cells.add(new Cell(fontHelvetica6, d2s(bilansOtwarcia.sumZywienie())));
+        cells.add(new Cell(fontHelvetica6, d2s(bilansOtwarcia.sumNadplataZywienie())));
+        cells.add(new Cell(fontHelvetica6, d2s(bilansOtwarcia.sumZalegloscZywienie())));
+        cells.add(new Cell(fontHelvetica6, zuzycie.sumDniZywienie() + ""));
+        cells.add(new Cell(fontHelvetica6, d2s(zuzycie.sumZywienie())));
+        cells.add(new Cell(fontHelvetica6, d2s(wplaty.sumZywienie())));
+        cells.add(new Cell(fontHelvetica6, d2s(s_z_bz)));
+        cells.add(new Cell(fontHelvetica6, d2s(s_z_zal)));
+        cells.add(new Cell(fontHelvetica6, d2s(s_z_pay)));
 
-        cells.add(new Cell(fontHelvetica10, d2s(s_o_pay + s_z_pay)));
+        cells.add(new Cell(fontHelvetica6, d2s(s_o_pay + s_z_pay)));
         rows.add(cells);
 
         return rows;

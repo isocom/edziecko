@@ -33,7 +33,7 @@ public class Raporty extends PDFReport {
     }
 
     private void zbiorowka() throws Exception {
-        newPage();
+        newPageA4();
         drawHeader();
 
         TextLine text = new TextLine(fontTimesRoman14);
@@ -57,7 +57,7 @@ public class Raporty extends PDFReport {
                 break;
             }
             drawFooter();
-            newPage();
+            newPageA4();
             drawHeader();
         }
         drawFooter();
@@ -96,7 +96,7 @@ public class Raporty extends PDFReport {
     }
 
     private void kartaPobytuDziecka(KartaPobytuDziecka period) throws Exception {
-        newPage();
+        newPageA4();
         drawHeader();
 
         TextLine text = new TextLine(fontTimesRoman14);

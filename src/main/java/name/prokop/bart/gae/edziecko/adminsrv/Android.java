@@ -57,7 +57,7 @@ public class Android extends HttpServlet {
             zdarzenie.setDzieckoKey(karta.getDziecko().getKey());
             zdarzenie.setPrzedszkoleKey(karta.getDziecko().getPrzedszkole().getKey());
             zdarzenie.setCzasZdarzenia(date);
-            zdarzenie.setTypZdarzenia(TypZdarzenia.WpisManualny);
+            zdarzenie.setTypZdarzenia(TypZdarzenia.Tablet);
             zdarzenie.persist(pm);
 
             String key = ZbiorZdarzen.buildID(karta.getDziecko().getPrzedszkole().getKey(), Integer.parseInt(DateToolbox.getFormatedDate("yyyyMM", date)));

@@ -30,7 +30,7 @@ public class DumpPrzedszkole extends PDFReport {
 
     @Override
     protected void renderContent() throws Exception {
-        newPage();
+        newPageA4();
         drawHeader();
         TextLine text = new TextLine(fontTimesRoman14);
 
@@ -52,7 +52,7 @@ public class DumpPrzedszkole extends PDFReport {
                 break;
             }
             drawFooter();
-            newPage();
+            newPageA4();
             drawHeader();
         }
         drawFooter();

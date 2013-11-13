@@ -30,7 +30,7 @@ public class BO extends PDFReport {
 
     @Override
     protected void renderContent() throws Exception {
-        newPage();
+        newPageA4();
         drawHeader();
         TextLine text = new TextLine(fontTimesRoman14);
         text.setText("Bilans otwarcia");
@@ -56,7 +56,7 @@ public class BO extends PDFReport {
                 break;
             }
             drawFooter();
-            newPage();
+            newPageA4();
             drawHeader();
         }
         drawFooter();

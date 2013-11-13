@@ -38,7 +38,7 @@ public class PaskiDlaRodzicow extends PDFReport {
     @Override
     protected void renderContent() throws Exception {
         r = request.retrieveRozliczenieMiesieczne();
-        newPage();
+        newPageA4();
         new Line(x_pos, y_pos, page.getWidth() - x_pos, y_pos).drawOn(page);
         for (Key k : r.getListaDzieci()) {
             kartaPobytuDziecka(request.getPrzedszkole().getDziecko(k));
@@ -51,7 +51,7 @@ public class PaskiDlaRodzicow extends PDFReport {
         double o, z;
 
         if (y_pos > page.getHeight() - 140) {
-            newPage();
+            newPageA4();
             new Line(x_pos, y_pos, page.getWidth() - x_pos, y_pos).drawOn(page);
         }
 

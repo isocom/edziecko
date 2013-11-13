@@ -27,7 +27,7 @@ public enum TypZdarzenia {
 	 * Wygenerowane zdarzenie automatycznie - np. domknięcie przez system
 	 * wyjścia
 	 */
-	WpisWygenerowany;
+	Tablet;
 
 	@Override
 	public String toString() {
@@ -36,8 +36,8 @@ public enum TypZdarzenia {
 			return "Przyłożono do czytnika";
 		case WpisManualny:
 			return "Dopisano ręcznie";
-		case WpisWygenerowany:
-			return "Wygenerowany przez algorytm";
+		case Tablet:
+			return "Użyto tablet";
 		default:
 			throw new IllegalStateException();
 		}

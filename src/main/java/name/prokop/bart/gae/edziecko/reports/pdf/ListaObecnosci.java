@@ -43,7 +43,7 @@ public class ListaObecnosci extends PDFReport {
                 if (category != null) {
                     drawFooter();
                 }
-                newPage();
+                newPageA4();
                 drawHeader();
                 text1.setText("Lista obecności w dniu: " + DateToolbox.getFormatedDate("yyyy-MM-dd", dzien) + ", grupa: " + h.getGrupaAsString());
                 text1.setPosition(x_pos, y_pos += 24);
