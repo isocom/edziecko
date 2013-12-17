@@ -85,8 +85,8 @@ public class Biskupiec extends DzienPobytuDziecka {
             STAWKA_OPIEKI = 1.0;
         }
 
-        TBEGF = DateToolbox.getBeginingOfDay(date, 7 * HOUR + 30 * MIN);
-        TENDF = DateToolbox.getBeginingOfDay(date, 12 * HOUR + 30 * MIN);
+        TBEGF = DateToolbox.getBeginingOfDay(date, 8 * HOUR + 0 * MIN);
+        TENDF = DateToolbox.getBeginingOfDay(date, 13 * HOUR + 0 * MIN);
 
         YEAR = DateToolbox.getYear(data);
         MONTH = DateToolbox.getMonth(data);
