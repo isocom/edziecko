@@ -164,6 +164,14 @@
         <url-pattern>/ExportujKarty</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>ExportujKD</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.adminsrv.ExportujKD</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExportujKD</servlet-name>
+        <url-pattern>/ExportujKD</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>DodajZdarzenie</servlet-name>
         <servlet-class>name.prokop.bart.gae.edziecko.adminsrv.DodajZdarzenie</servlet-class>
     </servlet>
