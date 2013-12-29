@@ -119,6 +119,15 @@
         <servlet-name>Android</servlet-name>
         <url-pattern>/Android</url-pattern>
     </servlet-mapping>
+    <!-- Obsługa Kontroli Dostepu -->
+    <servlet>
+        <servlet-name>NatanEdwin</servlet-name>
+        <servlet-class>name.prokop.bart.gae.edziecko.adminsrv.NatanEdwin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NatanEdwin</servlet-name>
+        <url-pattern>/NatanEdwin</url-pattern>
+    </servlet-mapping>
     <!-- Obsługa rejestratora -->
     <servlet>
         <servlet-name>Rejestrator</servlet-name>

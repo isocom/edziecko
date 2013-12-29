@@ -12,34 +12,38 @@ package name.prokop.bart.gae.edziecko.bol;
 
 /**
  * @author bart
- * 
+ *
  */
 public enum TypZdarzenia {
-	/**
-	 * Przyłożenie karty do rejestratora
-	 */
-	PrzylozenieKarty,
-	/**
-	 * Ręczne dodanie zdarzenia - np. dziecko nie odbiło się
-	 */
-	WpisManualny,
-	/**
-	 * Wygenerowane zdarzenie automatycznie - np. domknięcie przez system
-	 * wyjścia
-	 */
-	Tablet;
 
-	@Override
-	public String toString() {
-		switch (this) {
-		case PrzylozenieKarty:
-			return "Przyłożono do czytnika";
-		case WpisManualny:
-			return "Dopisano ręcznie";
-		case Tablet:
-			return "Użyto tablet";
-		default:
-			throw new IllegalStateException();
-		}
-	}
+    /**
+     * Przyłożenie karty do rejestratora
+     */
+    PrzylozenieKarty,
+    /**
+     * Ręczne dodanie zdarzenia - np. dziecko nie odbiło się
+     */
+    WpisManualny,
+    /**
+     * Wygenerowane zdarzenie automatycznie - np. domknięcie przez system
+     * wyjścia
+     */
+    Tablet,
+    KontrolaDostepu;
+
+    @Override
+    public String toString() {
+        switch (this) {
+            case PrzylozenieKarty:
+                return "Przyłożono do czytnika";
+            case WpisManualny:
+                return "Dopisano ręcznie";
+            case Tablet:
+                return "Użyto tablet";
+            case KontrolaDostepu:
+                return "Kontrola dostepu";
+            default:
+                throw new IllegalStateException();
+        }
+    }
 }
