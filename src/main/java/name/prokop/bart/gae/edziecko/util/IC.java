@@ -4,6 +4,7 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import java.util.*;
 import javax.cache.Cache;
+import javax.cache.CacheException;
 import javax.cache.CacheFactory;
 import javax.cache.CacheManager;
 import javax.jdo.PersistenceManager;
@@ -11,8 +12,6 @@ import javax.jdo.Query;
 import name.prokop.bart.gae.edziecko.bol.*;
 import name.prokop.bart.gae.edziecko.bol.cacheable.CacheableZbiorZdarzen;
 import name.prokop.bart.gae.edziecko.reports.ZbiorZdarzen;
-import name.prokop.bart.gae.edziecko.util.mailer.ExceptionReportMail;
-import name.prokop.bart.gae.edziecko.util.mailer.Mailer;
 
 public enum IC {
 
@@ -24,7 +23,7 @@ public enum IC {
         try {
             CacheFactory cacheFactory = CacheManager.getInstance().getCacheFactory();
             cache = cacheFactory.createCache(Collections.emptyMap());
-        } catch (Exception e) {
+        } catch (CacheException e) {
             throw new IllegalStateException(e);
         }
     }
