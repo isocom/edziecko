@@ -92,7 +92,8 @@ public class Przedszkole implements Serializable, LogicEntity {
      */
     @Persistent(mappedBy = "przedszkole")
     @Element(dependent = "true")
-    private List<Dziecko> dzieci = new ArrayList<Dziecko>();
+    private Set<Dziecko> dzieci = new HashSet<Dziecko>();
+//    private List<Dziecko> dzieci = new ArrayList<Dziecko>();
     /**
      * Nazwa przedszkola
      */
@@ -139,13 +140,14 @@ public class Przedszkole implements Serializable, LogicEntity {
         return key;
     }
 
-    public void setDzieci(List<Dziecko> dzieci) {
+    public void setDzieci(Set<Dziecko> dzieci) {
         this.dzieci = dzieci;
     }
 
-    public List<Dziecko> getDzieci() {
+    public Set<Dziecko> getDzieci() {
         return dzieci;
     }
+
     public List<Dziecko> getDzieciPosortowane() {
         List<Dziecko> retVal = new ArrayList<Dziecko>();
         retVal.addAll(dzieci);

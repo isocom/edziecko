@@ -16,7 +16,7 @@ import name.prokop.bart.gae.edziecko.reports.TypKolumny;
 import name.prokop.bart.gae.edziecko.util.BPMath;
 import name.prokop.bart.gae.edziecko.util.DateToolbox;
 
-public class Dabrowa extends DzienPobytuDziecka {
+public class DabrowaOld1 extends DzienPobytuDziecka {
 
     private final static List<String> COLUMNS = new ArrayList<String>();
     private final static Map<String, TypKolumny> COLTYPE = new HashMap<String, TypKolumny>();
@@ -51,7 +51,7 @@ public class Dabrowa extends DzienPobytuDziecka {
     private final int dayOfWeek;
     private final Map<String, Object> cols = new HashMap<String, Object>();
 
-    public Dabrowa(KidsReport raport, Dziecko dziecko, Date date, NavigableSet<Zdarzenie> entries, Map<String, Object> shared) {
+    public DabrowaOld1(KidsReport raport, Dziecko dziecko, Date date, NavigableSet<Zdarzenie> entries, Map<String, Object> shared) {
         super(raport, dziecko, date, entries, shared);
 
         TMIDD = DateToolbox.getBeginingOfDay(date, 11 * HOUR + 15 * MIN);

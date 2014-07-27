@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.jdo.PersistenceManager;
 import javax.servlet.ServletException;
@@ -36,12 +37,12 @@ public class UsunDodatkoweKarty extends HttpServlet {
 		pm.currentTransaction().begin();
 		Przedszkole przedszkole = pm.getObjectById(Przedszkole.class, id);
 		for (Dziecko d : przedszkole.getDzieci()) {
-			List<Karta> karty = d.getKarty();
+			Set<Karta> karty = d.getKarty();
 			while (karty.size() > 1) {
-				Karta k = karty.get(1);
-				out.println("Dodatkowa karta: " + k);
-				dousuniecia.add(k);
-				karty.remove(1);
+//				Karta k = karty.get(1);
+//				out.println("Dodatkowa karta: " + k);
+//				dousuniecia.add(k);
+//				karty.remove(1);
 			}
 		}
 		pm.currentTransaction().commit();

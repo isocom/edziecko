@@ -23,10 +23,10 @@ public class Menu extends EDzieckoServlet {
     private static final long serialVersionUID = -1245667592036050108L;
 
     /**
-     * 
+     *
      * @param response
      * @param label
-     * @param param 
+     * @param param
      */
     private void doLink(EDzieckoResponse response, String label, String param) {
         response.print("<tr><td>");

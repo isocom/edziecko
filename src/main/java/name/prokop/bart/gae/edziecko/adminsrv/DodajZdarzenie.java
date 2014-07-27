@@ -33,7 +33,7 @@ public class DodajZdarzenie extends EDzieckoServlet {
             if (d.getKarty().isEmpty()) {
                 continue;
             }
-            response.println("<option value=\"" + d.getKarty().get(0).getNumerSeryjny() + "\">");
+            response.println("<option value=\"" + d.getKarty().iterator().next().getNumerSeryjny() + "\">");
             response.println(d.getImieNazwisko() + " " + d.getGrupaAsString());
             response.println("</option>");
         }

@@ -49,7 +49,7 @@ public class ZamowKarteDodatkowa extends EDzieckoServlet {
 
     @Override
     protected void onGet(EDzieckoRequest request, EDzieckoResponse response) throws Exception {
-        sendMail(response, request.getPrzedszkole().getDzieci().get(0));
+        sendMail(response, request.getPrzedszkole().getDzieci().iterator().next());
     }
 
     @Override

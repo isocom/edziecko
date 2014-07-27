@@ -87,12 +87,12 @@ public class ZmienNumerSeryjny extends HttpServlet {
                     pm.currentTransaction().begin();
                     out.println(z);
                     z.setDzieckoKey(d1.getKey());
-                    z.setKartaKey(d1.getKarty().get(0).getKey());
+                    z.setKartaKey(d1.getKarty().iterator().next().getKey());
                     out.println(z);
                     pm.currentTransaction().commit();
                 }
                 pm.currentTransaction().begin();
-                Karta karta = d2.getKarty().get(0);
+                Karta karta = d2.getKarty().iterator().next();
                 d2.getKarty().remove(karta);
 //                pm.deletePersistent(karta);
 //                d1.getKarty().add(karta);

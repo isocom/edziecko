@@ -101,7 +101,7 @@ public class HTMLRaport {
             out.println("<td>" + kpd.getNoOfDays() + "</td>");
             out.println("<td>" + StringToolbox.d2c(kpd.getCalkowitaCenaPobytu()) + "</td>");
             out.println("<td>" + kpd.getDniPobytu() + "</td>");
-            String cn = StringToolbox.cardNumberCompress(kpd.getHuman().getKarty().get(0).getNumerKarty());
+            String cn = StringToolbox.cardNumberCompress(kpd.getHuman().getKarty().iterator().next().getNumerKarty());
             out.println("<td><a href=UsunZdarzenia?cn=" + cn + "&rokMiesiac=" + request.getRokMiesiac() + ">Usuń zdarzenia</a></td>");
             out.println("</tr>");
         }

@@ -1,3 +1,13 @@
+/*
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * 
+ * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+ * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+ * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
+ * THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
 package name.prokop.bart.gae.edziecko.reports.rz.swilcza;
 
 import java.util.ArrayList;
@@ -11,6 +21,8 @@ import java.util.TimeZone;
 import name.prokop.bart.gae.edziecko.bol.Dziecko;
 import name.prokop.bart.gae.edziecko.bol.Zdarzenie;
 import name.prokop.bart.gae.edziecko.reports.DzienPobytuDziecka;
+import static name.prokop.bart.gae.edziecko.reports.DzienPobytuDziecka.HOUR;
+import static name.prokop.bart.gae.edziecko.reports.DzienPobytuDziecka.MIN;
 import name.prokop.bart.gae.edziecko.reports.KidsReport;
 import name.prokop.bart.gae.edziecko.reports.TypKolumny;
 import name.prokop.bart.gae.edziecko.util.BPMath;
@@ -18,11 +30,13 @@ import name.prokop.bart.gae.edziecko.util.DateToolbox;
 
 public class Dabrowa extends DzienPobytuDziecka {
 
-    private final static List<String> COLUMNS = new ArrayList<String>();
-    private final static Map<String, TypKolumny> COLTYPE = new HashMap<String, TypKolumny>();
+    private final static List<String> COLUMNS = new ArrayList<>();
+    private final static Map<String, TypKolumny> COLTYPE = new HashMap<>();
     private final static String CZASPRZED = "Czas przed";
     private final static String CZASPO = "Czas po";
+    private final static String CZAS_NAR = "Czas nar.";
     private final static String POBYT = "Opieka";
+    private final static String POBYT_NAR = "Opieka nar.";
     private final static String ZYWIENIE = "Żywienie";
 
     static {
@@ -30,54 +44,48 @@ public class Dabrowa extends DzienPobytuDziecka {
         COLUMNS.add(CZASPO);
         COLUMNS.add(POBYT);
         COLUMNS.add(ZYWIENIE);
+        COLUMNS.add(CZAS_NAR);
+        COLUMNS.add(POBYT_NAR);
         COLTYPE.put(CZASPRZED, TypKolumny.OkresCzasu);
         COLTYPE.put(CZASPO, TypKolumny.OkresCzasu);
         COLTYPE.put(ZYWIENIE, TypKolumny.Kwota);
         COLTYPE.put(POBYT, TypKolumny.Kwota);
+        COLTYPE.put(CZAS_NAR, TypKolumny.OkresCzasuBezSumowania);
+        COLTYPE.put(POBYT_NAR, TypKolumny.KwotaBezSumowania);
     }
-    private final Date T_06_30;
-    private final Date T_07_00;
-    private final Date T_07_30;
-    private final Date T_08_00;
-    private final Date T_13_00;
-    private final Date T_14_00;
-    private final Date T_15_00;
-    private final Date T_16_00;
+    private final double STAWKA_OPIEKI;
     private final Date TBEGF;
     private final Date TENDF;
     private final Date TBEGD;
     private final Date TMIDD;
     private final Date TENDD;
-    private final int dayOfWeek;
-    private final Map<String, Object> cols = new HashMap<String, Object>();
+    private final int YEAR;
+    private final int MONTH;
+    //private final int dayOfWeek;
+    private final Map<String, Object> cols = new HashMap<>();
 
     public Dabrowa(KidsReport raport, Dziecko dziecko, Date date, NavigableSet<Zdarzenie> entries, Map<String, Object> shared) {
         super(raport, dziecko, date, entries, shared);
 
-        TMIDD = DateToolbox.getBeginingOfDay(date, 11 * HOUR + 15 * MIN);
+        if (shared.get(CZAS_NAR) == null) {
+            shared.put(CZAS_NAR, new Integer(0));
+        }
 
-        T_06_30 = DateToolbox.getBeginingOfDay(date, 6 * HOUR + 30 * MIN);
-        T_07_00 = DateToolbox.getBeginingOfDay(date, 7 * HOUR + 00 * MIN);
-        T_07_30 = DateToolbox.getBeginingOfDay(date, 7 * HOUR + 30 * MIN);
-        T_08_00 = DateToolbox.getBeginingOfDay(date, 8 * HOUR + 00 * MIN);
-        T_13_00 = DateToolbox.getBeginingOfDay(date, 13 * HOUR + 00 * MIN);
-        T_14_00 = DateToolbox.getBeginingOfDay(date, 14 * HOUR + 00 * MIN);
-        T_15_00 = DateToolbox.getBeginingOfDay(date, 15 * HOUR + 00 * MIN);
-        T_16_00 = DateToolbox.getBeginingOfDay(date, 16 * HOUR + 00 * MIN);
+        TBEGD = DateToolbox.getBeginingOfDay(date, 06 * HOUR + 30 * MIN);
+        TMIDD = DateToolbox.getBeginingOfDay(date, 11 * HOUR + 30 * MIN);
+        TENDD = DateToolbox.getBeginingOfDay(date, 16 * HOUR + 45 * MIN);
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeZone(TimeZone.getTimeZone("CET"));
         calendar.setTime(date);
 
-        dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-        if (dayOfWeek == Calendar.TUESDAY || dayOfWeek == Calendar.FRIDAY) {
-            TBEGF = DateToolbox.getBeginingOfDay(date, 7 * HOUR + 30 * MIN);
-        } else {
-            TBEGF = DateToolbox.getBeginingOfDay(date, 8 * HOUR + 00 * MIN);
-        }
-        TENDF = DateToolbox.getBeginingOfDay(date, 13 * HOUR + 00 * MIN);
-        TBEGD = DateToolbox.getBeginingOfDay(date, 6 * HOUR + 30 * MIN);
-        TENDD = DateToolbox.getBeginingOfDay(date, 16 * HOUR + 00 * MIN);
+        STAWKA_OPIEKI = 1.0;
+
+        TBEGF = DateToolbox.getBeginingOfDay(date, 8 * HOUR + 0 * MIN);
+        TENDF = DateToolbox.getBeginingOfDay(date, 13 * HOUR + 12 * MIN);
+
+        YEAR = DateToolbox.getYear(data);
+        MONTH = DateToolbox.getMonth(data);
         calc();
     }
 
@@ -85,10 +93,10 @@ public class Dabrowa extends DzienPobytuDziecka {
         if (czasOd.equals(czasDo)) {
             if (czasOd.before(TMIDD)) {
                 czasDo = TENDD;
-                uwagi = "Brak wieczora (ustalono 16:00)";
+                uwagi = "Brak wieczora (ustalono 16:30)";
             } else {
                 czasOd = TBEGD;
-                uwagi = "Brak poranku (ustalono 6:30)";
+                uwagi = "Brak poranku (ustalono 6:00)";
             }
         }
 
@@ -112,53 +120,37 @@ public class Dabrowa extends DzienPobytuDziecka {
             czasPo = 0;
         }
 
-        double opieka = 0.0;
-        if (dayOfWeek == Calendar.TUESDAY || dayOfWeek == Calendar.FRIDAY) {
-            if (czasOd.before(T_07_00)) {
-                opieka += 0.5;
-            }
-            if (czasOd.before(T_07_30)) {
-                opieka += 0.5;
-            }
-            if (czasDo.after(T_13_00)) {
-                opieka += 1.0;
-            }
-            if (czasDo.after(T_14_00)) {
-                opieka += 1.0;
-            }
-            if (czasDo.after(T_15_00)) {
-                opieka += 1.0;
-            }
-        } else {
-            if (czasOd.before(T_07_00)) {
-                opieka += 0.5;
-            }
-            if (czasOd.before(T_07_30)) {
-                opieka += 0.5;
-            }
-            if (czasOd.before(T_08_00)) {
-                opieka += 0.5;
-            }
-            if (czasDo.after(T_13_00)) {
-                opieka += 1.0;
-            }
-            if (czasDo.after(T_14_00)) {
-                opieka += 1.0;
-            }
-            if (czasDo.after(T_15_00)) {
-                opieka += 1.0;
-            }
-        }
+        // czas za ktory liczymy
+        int czasNaliczony = czasPo + czasPrzed;
+        shared.put(CZAS_NAR, new Integer(czasNaliczony + (Integer) shared.get(CZAS_NAR)));
 
-        opieka = BPMath.roundCurrency(opieka * dziecko.getRabat1AsFactor());
-        double zywienie = 3.0;
+        double zywienie = raport.getRozliczenieMiesieczne().getParametry().getStawkaZywieniowa();
         zywienie = BPMath.roundCurrency(zywienie * dziecko.getRabat2AsFactor());
 
-        cenaPobytu = BPMath.roundCurrency(zywienie + opieka);
         cols.put(CZASPRZED, czasPrzed);
         cols.put(CZASPO, czasPo);
-        cols.put(POBYT, opieka);
+        cols.put(POBYT, new Double(0.0));
         cols.put(ZYWIENIE, zywienie);
+        cols.put(CZAS_NAR, (Integer) shared.get(CZAS_NAR));
+
+        double opieka = (((Integer) shared.get(CZAS_NAR) - 1) / MIN + 1) * (STAWKA_OPIEKI / 60);
+        if ((Integer) shared.get(CZAS_NAR) == 0) {
+            opieka = 0.0;
+        }
+        opieka = BPMath.roundCurrency(opieka * dziecko.getRabat1AsFactor());
+        cols.put(POBYT_NAR, opieka);
+
+        if (shared.get("cols") != null) {
+            Map<String, Object> prev_cols = (Map<String, Object>) shared.get("cols");
+            prev_cols.put(POBYT, new Double(0.0));
+            Dabrowa b = (Dabrowa) shared.get("prev");
+            b.setCenaPobytu((Double) prev_cols.get(ZYWIENIE));
+        }
+        shared.put("cols", cols);
+        shared.put("prev", this);
+
+        cols.put(POBYT, cols.get(POBYT_NAR));
+        cenaPobytu = zywienie + (Double) cols.get(POBYT_NAR);
     }
 
     @Override

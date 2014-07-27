@@ -1,0 +1,4 @@
+THIS IS OPEN SOURCE SOFTWARE, BUT IT DOES NOT MEAN THAT IT IS FREE SOFTWARE OR YOU CAN USE IT COMMERCIALLY WITHOUT COPYRIGHT HOLDER WRITTEN PERMISSION.
+THE E-DZIECKO, EDZIECKO or similar names are registered trademarks of Bartłomiej Prokop and were first used in public on in Bart's Blog.
+Any use of this code or algorithms or programming techniques specified in this source code for commercial purposes without Bartłomiej Prokop written permission is a criminal act on copyright laws.
+Making the source code public is my best attempt to claim full intellectual property over it against illegal use.

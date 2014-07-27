@@ -14,7 +14,9 @@ import com.google.appengine.api.datastore.Category;
 import com.google.appengine.api.datastore.Key;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.jdo.annotations.*;
 import name.prokop.bart.gae.edziecko.util.StringToolbox;
 
@@ -40,7 +42,8 @@ public class Dziecko implements Serializable, Comparable<Dziecko> {
      */
     @Persistent(mappedBy = "dziecko")
     @Element(dependent = "true")
-    private List<Karta> karty = new ArrayList<Karta>();
+//    private List<Karta> karty = new ArrayList<Karta>();
+    private Set<Karta> karty = new HashSet<Karta>();
     /**
      * Pesel dziecka (jego znajomość umożliwia przypisanie przez rodzica konta
      * Google do dziecka i oglądanie w internecie co się działo)
@@ -85,11 +88,11 @@ public class Dziecko implements Serializable, Comparable<Dziecko> {
         return przedszkole;
     }
 
-    public void setKarty(List<Karta> karty) {
+    public void setKarty(Set<Karta> karty) {
         this.karty = karty;
     }
 
-    public List<Karta> getKarty() {
+    public Set<Karta> getKarty() {
         return karty;
     }
 
@@ -207,7 +210,7 @@ public class Dziecko implements Serializable, Comparable<Dziecko> {
 
     @Override
     public int hashCode() {
-        return key.hashCode();
+        return imieNazwisko.hashCode();
     }
 
     @Override
