@@ -11,7 +11,7 @@ import name.prokop.bart.gae.edziecko.bol.Przedszkole;
 
 /**
  *
- * @author Administrator
+ * @author Bartłomiej P. Prokop
  */
 public class Dzieci extends XLSReport {
 

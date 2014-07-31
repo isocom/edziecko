@@ -24,7 +24,7 @@ import name.prokop.bart.gae.edziecko.util.StringToolbox;
 
 /**
  *
- * @author prokob01
+ * @author Bartłomiej P. Prokop
  */
 public class BO extends PDFReport {
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author prokob01
+ * @author Bartłomiej P. Prokop
  */
 public class Mail {
 

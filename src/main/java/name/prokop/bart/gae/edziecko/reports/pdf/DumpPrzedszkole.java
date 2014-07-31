@@ -21,7 +21,7 @@ import name.prokop.bart.gae.edziecko.bol.Przedszkole;
 
 /**
  *
- * @author prokob01
+ * @author Bartłomiej P. Prokop
  */
 public class DumpPrzedszkole extends PDFReport {
 

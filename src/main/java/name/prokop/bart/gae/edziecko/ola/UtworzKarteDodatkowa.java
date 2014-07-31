@@ -27,7 +27,7 @@ import name.prokop.bart.gae.edziecko.util.StringToolbox;
  * Klasa do ustawiania numeru seryjnego. Na podstawie numeru karty przypisywany
  * jest numer seryjny
  *
- * @author bart
+ * @author Bartłomiej P. Prokop
  *
  */
 public class UtworzKarteDodatkowa extends HttpServlet {

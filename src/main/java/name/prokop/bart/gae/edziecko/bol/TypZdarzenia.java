@@ -11,7 +11,7 @@
 package name.prokop.bart.gae.edziecko.bol;
 
 /**
- * @author bart
+ * @author Bartłomiej P. Prokop
  *
  */
 public enum TypZdarzenia {

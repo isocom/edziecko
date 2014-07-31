@@ -15,7 +15,7 @@ import name.prokop.bart.gae.edziecko.bol.blobs.*;
 
 /**
  *
- * @author Administrator
+ * @author Bartłomiej P. Prokop
  */
 public class Rozliczenie extends XLSReport {
 

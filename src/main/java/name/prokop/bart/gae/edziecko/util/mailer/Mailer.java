@@ -13,7 +13,7 @@ import javax.mail.internet.MimeMessage;
 
 /**
  *
- * @author prokob01
+ * @author Bartłomiej P. Prokop
  */
 public enum Mailer {
 

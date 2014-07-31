@@ -12,7 +12,7 @@ import name.prokop.bart.gae.edziecko.bol.Przedszkole;
 
 /**
  *
- * @author Administrator
+ * @author Bartłomiej P. Prokop
  */
 class DumpPrzedszkole extends XLSReport {
 

@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author Administrator
+ * @author Bartłomiej P. Prokop
  */
 public class PingServletData implements Serializable {
 

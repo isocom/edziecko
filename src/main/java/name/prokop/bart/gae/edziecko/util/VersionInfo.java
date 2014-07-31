@@ -16,7 +16,7 @@ import name.prokop.bart.gae.edziecko.util.mailer.Mailer;
 
 /**
  *
- * @author bart
+ * @author Bartłomiej P. Prokop
  */
 public class VersionInfo {
 

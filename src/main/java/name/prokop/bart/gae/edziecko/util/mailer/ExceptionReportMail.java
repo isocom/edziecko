@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 
 /**
  *
- * @author prokob01
+ * @author Bartłomiej P. Prokop
  */
 public class ExceptionReportMail extends Mail {
 

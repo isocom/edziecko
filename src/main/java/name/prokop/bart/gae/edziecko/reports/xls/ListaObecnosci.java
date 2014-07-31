@@ -15,7 +15,7 @@ import name.prokop.bart.gae.edziecko.reports.ZbiorZdarzen;
 
 /**
  *
- * @author Administrator
+ * @author Bartłomiej P. Prokop
  */
 class ListaObecnosci extends XLSReport {
 

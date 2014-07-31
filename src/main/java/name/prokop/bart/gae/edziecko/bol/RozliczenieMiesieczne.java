@@ -28,7 +28,7 @@ import name.prokop.bart.gae.edziecko.util.IC;
 
 /**
  *
- * @author bart
+ * @author Bartłomiej P. Prokop
  */
 @PersistenceCapable
 public class RozliczenieMiesieczne implements Serializable, LogicEntity {

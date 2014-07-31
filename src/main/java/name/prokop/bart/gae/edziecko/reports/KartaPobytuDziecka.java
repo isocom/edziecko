@@ -28,7 +28,7 @@ import name.prokop.bart.gae.edziecko.util.StringToolbox;
 
 /**
  *
- * @author bart
+ * @author Bartłomiej P. Prokop
  */
 public class KartaPobytuDziecka {
 

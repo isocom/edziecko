@@ -10,7 +10,7 @@ import name.prokop.bart.gae.edziecko.util.EDzieckoRequest;
 
 /**
  *
- * @author Administrator
+ * @author Bartłomiej P. Prokop
  */
 public enum XLSType {
 

@@ -16,7 +16,7 @@ import java.util.Map;
 
 /**
  *
- * @author bart
+ * @author Bartłomiej P. Prokop
  */
 public final class PostClient {
 

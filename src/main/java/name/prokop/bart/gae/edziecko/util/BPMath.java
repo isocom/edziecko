@@ -7,7 +7,7 @@ package name.prokop.bart.gae.edziecko.util;
 
 /**
  *
- * @author bart
+ * @author Bartłomiej P. Prokop
  */
 public class BPMath {
 

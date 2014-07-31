@@ -21,7 +21,7 @@ import javax.jdo.annotations.*;
 /**
  * Informacja o przedszkolu.
  *
- * @author bart
+ * @author Bartłomiej P. Prokop
  */
 @PersistenceCapable
 public class Przedszkole implements Serializable, LogicEntity {

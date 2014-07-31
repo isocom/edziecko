@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Administrator
+ * @author Bartłomiej P. Prokop
  */
 public class DownloadGarbage extends HttpServlet {
 

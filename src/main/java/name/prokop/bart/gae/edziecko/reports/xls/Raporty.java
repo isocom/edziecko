@@ -8,7 +8,7 @@ import jxl.write.WritableSheet;
 
 /**
  *
- * @author Administrator
+ * @author Bartłomiej P. Prokop
  */
 public class Raporty extends XLSReport {
 

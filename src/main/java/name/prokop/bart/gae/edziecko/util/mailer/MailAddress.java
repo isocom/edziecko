@@ -6,7 +6,7 @@ package name.prokop.bart.gae.edziecko.util.mailer;
 
 /**
  *
- * @author prokob01
+ * @author Bartłomiej P. Prokop
  */
 public class MailAddress {
 

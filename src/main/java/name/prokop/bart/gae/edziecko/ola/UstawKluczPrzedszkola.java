@@ -26,7 +26,7 @@ import name.prokop.bart.gae.edziecko.util.EDzieckoRequest;
  * Klasa do ustawiania numeru seryjnego. Na podstawie numeru karty przypisywany
  * jest numer seryjny
  *
- * @author bart
+ * @author Bartłomiej P. Prokop
  *
  */
 public class UstawKluczPrzedszkola extends HttpServlet {

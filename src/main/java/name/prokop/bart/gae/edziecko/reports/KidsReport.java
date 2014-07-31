@@ -18,7 +18,7 @@ import name.prokop.bart.gae.edziecko.util.BPMath;
 
 /**
  *
- * @author bart
+ * @author Bartłomiej P. Prokop
  */
 public class KidsReport {
 

@@ -30,7 +30,7 @@ import static name.prokop.bart.gae.edziecko.util.StringToolbox.d2s;
 
 /**
  *
- * @author prokob01
+ * @author Bartłomiej P. Prokop
  */
 public class Rozliczenie extends PDFReport {
 

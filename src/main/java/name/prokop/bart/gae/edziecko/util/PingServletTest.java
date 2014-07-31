@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 
 /**
  *
- * @author Administrator
+ * @author Bartłomiej P. Prokop
  */
 public class PingServletTest {
     public static void main(String[] args) throws Exception {

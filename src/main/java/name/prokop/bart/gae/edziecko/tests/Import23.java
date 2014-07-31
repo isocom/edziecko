@@ -19,7 +19,7 @@ import org.w3c.dom.NodeList;
 
 /**
  *
- * @author prokob01
+ * @author Bartłomiej P. Prokop
  */
 public class Import23 {
 

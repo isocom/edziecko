@@ -9,7 +9,7 @@ import java.math.BigInteger;
 
 /**
  *
- * @author Bart
+ * @author Bartłomiej P. Prokop
  */
 public class TextGenerator {
 

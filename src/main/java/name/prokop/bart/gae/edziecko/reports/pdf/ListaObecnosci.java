@@ -21,7 +21,7 @@ import name.prokop.bart.gae.edziecko.util.DateToolbox;
 
 /**
  *
- * @author prokob01
+ * @author Bartłomiej P. Prokop
  */
 public class ListaObecnosci extends PDFReport {
 

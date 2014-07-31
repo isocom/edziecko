@@ -14,7 +14,7 @@ import name.prokop.bart.gae.edziecko.util.DateToolbox;
 
 /**
  *
- * @author Administrator
+ * @author Bartłomiej P. Prokop
  */
 class BO extends XLSReport {
 
